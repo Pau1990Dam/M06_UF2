@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainCode.Controller">
+   <children>
+      <TabPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="SOCIS">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.63" layoutX="14.0" layoutY="14.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <TableView fx:id="taulaSocis" layoutX="14.0" layoutY="14.0" prefHeight="286.0" prefWidth="501.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+                                    <HBox layoutX="22.0" layoutY="314.0" spacing="3.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="10.0" />
+                                    <TextField fx:id="tfCercador" layoutX="8.0" layoutY="4.0" promptText="Cercador: separa els camps que vulguis buscar amb &quot;; &quot;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <VBox layoutX="9.9619140625" layoutY="30.0" spacing="60.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <GridPane>
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="142.0" minWidth="10.0" prefWidth="99.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="196.0" minWidth="10.0" prefWidth="196.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <Label text="ID" />
+                                                      <Label text="COGNOM" GridPane.rowIndex="1" />
+                                                      <Label text="DIRECCIO" GridPane.rowIndex="2" />
+                                                      <Label text="TELEFON" GridPane.rowIndex="3" />
+                                                      <Label text="NAIXEMENT" GridPane.rowIndex="4" />
+                                                      <TextField fx:id="sID" editable="false" GridPane.columnIndex="1" />
+                                                      <TextField fx:id="sCognom" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                      <TextField fx:id="sDireccio" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                      <TextField fx:id="sTelefon" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                      <TextField fx:id="sNaixement" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                   </children>
+                                                </GridPane>
+                                                <HBox alignment="TOP_RIGHT" prefWidth="246.0" spacing="3.0">
+                                                   <children>
+                                                      <Button fx:id="sNou" mnemonicParsing="false" onAction="#handleNou" prefWidth="80.0" text="Nou" />
+                                                      <Button fx:id="sEditar" mnemonicParsing="false" onAction="#handleEditar" prefWidth="80.0" text="Editar" />
+                                                      <Button fx:id="sBorrar" mnemonicParsing="false" onAction="#handleBorrar" prefWidth="80.0" text="Borrar" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="10.0">
+                                             <children>
+                                                <Label alignment="CENTER" contentDisplay="RIGHT" text="PRESTECS SOCI" textAlignment="CENTER">
+                                                   <padding>
+                                                      <Insets left="80.0" />
+                                                   </padding>
+                                                </Label>
+                                                <ListView fx:id="sPrestecs" prefHeight="200.0" prefWidth="200.0" />
+                                                <HBox alignment="CENTER_RIGHT" spacing="3.0">
+                                                   <children>
+                                                      <Button fx:id="sPrestecNou" mnemonicParsing="false" onAction="#handleNouPrestec" prefWidth="80.0" text="Nou" textAlignment="CENTER" />
+                                                      <Button fx:id="sPrestecFinalitzar" mnemonicParsing="false" onAction="#handleFinalitzarPrestec" prefWidth="80.0" text="Finalitzar" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+          <Tab text="LLIBRES">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.63" layoutX="14.0" layoutY="14.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <TableView fx:id="taulaLlibres" layoutX="14.0" layoutY="21.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+                                    <TextField fx:id="tfCercadorLlibre" layoutX="14.0" layoutY="1.0" promptText="Cercador: separa els camps que vulguis buscar amb &quot;; &quot;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <VBox layoutX="9.9619140625" layoutY="30.0" spacing="60.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <GridPane>
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="10.0" prefWidth="103.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="168.0" minWidth="10.0" prefWidth="168.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <Label text="ID" />
+                                                      <Label text="TITOL" GridPane.rowIndex="1" />
+                                                      <Label text="EDITORIAL" GridPane.rowIndex="2" />
+                                                      <Label text="ANY EDICIO" GridPane.rowIndex="3" />
+                                                      <Label text="AUTOR" GridPane.rowIndex="4" />
+                                                      <Label text="PAGINES" GridPane.rowIndex="5" />
+                                                      <Label text="EXEMPLARS" GridPane.rowIndex="6" />
+                                                      <TextField fx:id="lID" editable="false" GridPane.columnIndex="1" />
+                                                      <TextField fx:id="lTitol" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                      <TextField fx:id="lEditorial" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                      <TextField fx:id="lEdicio" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                      <TextField fx:id="lAutor" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                      <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                      <TextField fx:id="lPagines" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                      <TextField fx:id="lExemplars" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                                   </children>
+                                                </GridPane>
+                                                <HBox alignment="TOP_RIGHT" spacing="3.0">
+                                                   <children>
+                                                      <Button fx:id="lNou" alignment="CENTER" mnemonicParsing="false" onAction="#handleNou" prefWidth="80.0" text="Nou" textAlignment="CENTER" />
+                                                      <Button fx:id="lEditar" alignment="CENTER" mnemonicParsing="false" onAction="#handleEditar" prefWidth="80.0" text="Editar" textAlignment="CENTER" />
+                                                      <Button fx:id="lBorrar" alignment="CENTER" mnemonicParsing="false" onAction="#handleBorrar" prefWidth="80.0" text="Borrar" textAlignment="CENTER" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="10.0">
+                                             <children>
+                                                <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="EN PRESTECT" textAlignment="CENTER">
+                                                   <padding>
+                                                      <Insets left="80.0" />
+                                                   </padding>
+                                                </Label>
+                                                <ListView fx:id="lPrestecs" prefHeight="148.0" prefWidth="202.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                 </children></AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+            <Tab text="PRESTECS">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane layoutX="58.0" layoutY="33.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <TableView fx:id="taulaPrestecs" layoutX="14.0" layoutY="14.0" prefHeight="540.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="25.0" />
+                                    <TextField fx:id="tfCercadorPrestec" layoutX="14.0" layoutY="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
